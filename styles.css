@@ -1,0 +1,47 @@
+.calculator-container {
+  border: 1px solid black;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: auto;
+  margin-top: 4em;
+}
+
+.display {
+  text-align: right;
+  padding: 5px 15px 5px;
+}
+
+.display-container {
+  border: 1px solid black;
+  margin-bottom: 12px;
+}
+
+.bottom-container {
+  display: flex;
+  font-size: 0px;
+}
+
+.operands-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#zero {
+  width: 112px; /* When changing CSS, make this as wide as 2 buttons + 2 margin*/
+}
+
+button {
+  width: 50px;
+  height: 30px;
+  margin: 6px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.text {
+  font-family:'Courier New', Courier, monospace;
+}

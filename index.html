@@ -6,6 +6,51 @@
     <link rel="stylesheet" href="./styles.css">
     <script src="./main.js" defer></script>
   </head>
+
   <body>
+    <h1 class="text header">Calculator</h1>
+    <div class="calculator-container">
+      <div class="display-container">
+        <p id="operate-text" class="display operate-text text">9 ÷ 0</p>
+        <p id="result-text" class="display result-text text">CANNOT COMPUTE</p>
+      </div>
+      <div class="bottom-container">
+        <div class="left-buttons">
+          <div class="misc-container first-row">
+            <button class="misc clear buttons">AC</button>
+            <button class="misc plus-minus-toggle buttons">±</button>
+            <button class="misc percentage buttons">%</button>
+          </div>
+          <div class="digit-container">
+            <div class="rows container second-row">
+              <button class="digits seven buttons">7</button>
+              <button class="digits eight buttons">8</button>
+              <button class="digits nine buttons">9</button>
+            </div>
+            <div class="rows container third-row">  
+              <button class="digits four buttons">4</button>
+              <button class="digits five buttons">5</button>
+              <button class="digits six buttons">6</button>
+            </div>
+            <div class="rows container fourth-row">
+              <button class="digits one buttons">1</button>
+              <button class="digits two buttons">2</button>
+              <button class="digits three buttons">3</button>
+            </div>
+          </div>
+          <div class="rows container fifth-row">
+            <button id="zero" class="digit zero buttons">0</button>
+            <button class="decimal buttons">.</button>
+          </div>
+        </div>
+        <div class="right-buttons operands-container">
+          <button class="operands divide buttons">÷</button>
+          <button class="operands multiply buttons">×</button>
+          <button class="operands add buttons">+</button>
+          <button class="operands subtract buttons">-</button>
+          <button class="operands equals buttons">=</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
