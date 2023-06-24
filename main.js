@@ -19,7 +19,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  return a / b;
+  if (a / b === Infinity) {
+    return "CANNOT COMPUTE"
+  } else return a / b;
 }
 
 function operate(operator, numberA, numberB) {
@@ -48,13 +50,26 @@ function displayUpper(event) { // Need to write code to prevent multiple decimal
 }
 
 function displayResult() {
-  let checkerArray = operationDisplay.textContent.split(" ");
-  let numberA = +checkerArray[0];
-  let numberB = +checkerArray[2];
-  let operator = checkerArray[1];
-  resultDisplay.textContent += operate(operator, numberA, numberB);
+  if (resultDisplay.textContent === "") {
+    let checkerArray = operationDisplay.textContent.split(" ");
+    let numberA = +checkerArray[0];
+    let numberB = +checkerArray[2];
+    let operator = checkerArray[1];
+    resultDisplay.textContent += operate(operator, numberA, numberB);
+    digits.forEach((item) => item.removeEventListener("click", displayUpper));
   // Variable updating come later
+  // .toFixed(1) for decimals
+  }
 }
+
+/* // On operand press, result set to numA, numB set to "". 
+  // Make event listeners work again.
+  // Use symbols from HTML
+  // Decimal point need to be fixed -probably check arr[length - 1] for "."
+  // Think of toggle function for +/- , maybe use unary "-"
+  // AC wipes everything
+  // Del can split, slice, join, output num
+  // if statement for result decimals. toFixed only output when decimal present */ 
 
 digits.forEach((item) => item.addEventListener("click", displayUpper));
 operands.forEach((item) => item.addEventListener("click", displayUpper));
