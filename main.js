@@ -1,7 +1,7 @@
 let operationDisplay = document.querySelector(".operate-text");
 let resultDisplay = document.querySelector(".result-text");
-let equals = document.querySelector("#equals");
-let decimalPoint = document.querySelector("#decimal");
+let equalsBtn = document.querySelector("#equals");
+let decimalPointBtn = document.querySelector("#decimal");
 
 let digits = Array.from(document.querySelectorAll(".digits"));
 let operands = Array.from(document.querySelectorAll(".operands"));
@@ -22,25 +22,19 @@ function divide(a, b) {
   return a / b;
 }
 
-let numberA = 5;
-let numberB = 4;
-let operator = "/";
-
-function operate() {
-  if (operator === "+") {
+function operate(operator, numberA, numberB) {
+  if (operator == "+") {
     return add(numberA, numberB);
-  } else if (operator === "-") {
+  } else if (operator == "-") {
     return subtract(numberA, numberB);
-  } else if (operator === "*") {
+  } else if (operator == "×") {
     return multiply(numberA, numberB);
-  } else if (operator === "/") {
+  } else if (operator == "÷") {
     return divide(numberA, numberB);
   }
 }
 
-console.log(operate());
-
-function displayUpper(event) {
+function displayUpper(event) { // Need to write code to prevent multiple decimal points on one number
   let buttonText = event.target.textContent;
   let checkerArray = operationDisplay.textContent.split(" ");
 
@@ -53,5 +47,15 @@ function displayUpper(event) {
   }
 }
 
+function displayResult() {
+  let checkerArray = operationDisplay.textContent.split(" ");
+  let numberA = +checkerArray[0];
+  let numberB = +checkerArray[2];
+  let operator = checkerArray[1];
+  resultDisplay.textContent += operate(operator, numberA, numberB);
+  // Variable updating come later
+}
+
 digits.forEach((item) => item.addEventListener("click", displayUpper));
 operands.forEach((item) => item.addEventListener("click", displayUpper));
+equalsBtn.addEventListener("click", displayResult);
