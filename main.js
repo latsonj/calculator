@@ -19,19 +19,19 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  if (a / b === Infinity) {
+  if (b === 0) {
     return "CANNOT COMPUTE"
   } else return a / b;
 }
 
 function operate(operator, numberA, numberB) {
-  if (operator == "+") {
+  if (operator === "+") {
     return add(numberA, numberB);
-  } else if (operator == "-") {
+  } else if (operator === "-") {
     return subtract(numberA, numberB);
-  } else if (operator == "×") {
+  } else if (operator === "×") {
     return multiply(numberA, numberB);
-  } else if (operator == "÷") {
+  } else if (operator === "÷") {
     return divide(numberA, numberB);
   }
 }
@@ -50,11 +50,12 @@ function displayUpper(event) { // Need to write code to prevent multiple decimal
 }
 
 function displayResult() {
-  if (resultDisplay.textContent === "") {
-    let checkerArray = operationDisplay.textContent.split(" ");
+  let checkerArray = operationDisplay.textContent.split(" ");
+  if ((resultDisplay.textContent === "" && checkerArray.length >= 3)) {
     let numberA = +checkerArray[0];
     let numberB = +checkerArray[2];
     let operator = checkerArray[1];
+    operationDisplay.textContent += ` ${equalsBtn.textContent}`;
     resultDisplay.textContent += operate(operator, numberA, numberB);
     digits.forEach((item) => item.removeEventListener("click", displayUpper));
   // Variable updating come later
@@ -69,7 +70,8 @@ function displayResult() {
   // Think of toggle function for +/- , maybe use unary "-"
   // AC wipes everything
   // Del can split, slice, join, output num
-  // if statement for result decimals. toFixed only output when decimal present */ 
+  // if statement for result decimals. toFixed only output when decimal present
+  // Make equals sign visible on displayUpper */ 
 
 digits.forEach((item) => item.addEventListener("click", displayUpper));
 operands.forEach((item) => item.addEventListener("click", displayUpper));
