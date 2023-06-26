@@ -1,5 +1,4 @@
 let operationDisplay = document.querySelector(".operate-text");
-let resultDisplay = document.querySelector(".result-text");
 let equalsBtn = document.querySelector("#equals");
 let decimalPointBtn = document.querySelector("#decimal");
 
@@ -76,7 +75,8 @@ function displayResult(event) {
   // AC wipes everything
   // Del can split, slice, join, output num
   // if statement for result decimals. toFixed only output when decimal present
-  // .toFixed(1) for decimals */
+  // .toFixed(1) for decimals
+  // Tell user to reset if CANNOT COMPUTE */
 
 digits.forEach((item) => item.addEventListener("click", displayUpper));
 operands.forEach((item) => item.addEventListener("click", displayUpper));
