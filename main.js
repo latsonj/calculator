@@ -35,7 +35,7 @@ function operate(operator, numberA, numberB) {
   }
 }
 
-function displayUpper(event) { // Need to write code to prevent multiple decimal points on one number
+function displayText(event) { // Need to write code to prevent multiple decimal points on one number
   let buttonText = event.target.textContent;
   let checkerArray = operationDisplay.textContent.split(" ");
 
@@ -51,7 +51,7 @@ function displayUpper(event) { // Need to write code to prevent multiple decimal
   }
 }
 
-function displayResult(event) {
+function calculateResult(event) {
   let checkerArray = operationDisplay.textContent.split(" ");
   if (checkerArray.length >= 3 // Make sure 2 numbers & operator are present before feeding them into operate()
       && !checkerArray.includes("")) { // Operands will not operate with empty strings
@@ -63,7 +63,7 @@ function displayResult(event) {
         } else {
           operationDisplay.textContent = `${operate(operator, numberA, numberB)} ${event.target.textContent}`;
         }
-    digits.forEach((item) => item.removeEventListener("click", displayUpper)); //Add back on operand press
+    digits.forEach((item) => item.removeEventListener("click", displayText)); //Add back on operand press
     console.log(checkerArray);
   }
 }
@@ -78,7 +78,7 @@ function displayResult(event) {
   // .toFixed(1) for decimals
   // Tell user to reset if CANNOT COMPUTE */
 
-digits.forEach((item) => item.addEventListener("click", displayUpper));
-operands.forEach((item) => item.addEventListener("click", displayUpper));
-operands.forEach((item) => item.addEventListener("click", displayResult));
-equalsBtn.addEventListener("click", displayResult);
+digits.forEach((item) => item.addEventListener("click", displayText));
+operands.forEach((item) => item.addEventListener("click", displayText));
+operands.forEach((item) => item.addEventListener("click", calculateResult));
+equalsBtn.addEventListener("click", calculateResult);
