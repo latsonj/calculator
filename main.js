@@ -43,7 +43,10 @@ function displayUpper(event) { // Need to write code to prevent multiple decimal
   if (event.target.classList.contains("digits")) {
     operationDisplay.textContent += `${buttonText}`;
     console.log(checkerArray);
-  } else if (((checkerArray.length >= 1 && checkerArray.length < 3) && event.target.classList.contains("operands"))) {
+  } else if ((checkerArray[0] !== "" // Operand cannot be written as first item
+      && checkerArray.length < 3 // Operands cannot be written 2 times in a row
+      && event.target.classList.contains("operands"))) {
+
     operationDisplay.textContent += ` ${buttonText} `;
     console.log(checkerArray);
   }
@@ -51,27 +54,26 @@ function displayUpper(event) { // Need to write code to prevent multiple decimal
 
 function displayResult() {
   let checkerArray = operationDisplay.textContent.split(" ");
-  if ((resultDisplay.textContent === "" && checkerArray.length >= 3)) {
+  if ((checkerArray.length >= 3 // Make sure 2 numbers & operator are present before feeding them into operate()
+      && !checkerArray.includes(""))) { // Operands will not operate with empty strings
     let numberA = +checkerArray[0];
     let numberB = +checkerArray[2];
     let operator = checkerArray[1];
     operationDisplay.textContent += ` ${equalsBtn.textContent}`;
     resultDisplay.textContent += operate(operator, numberA, numberB);
-    digits.forEach((item) => item.removeEventListener("click", displayUpper));
-  // Variable updating come later
-  // .toFixed(1) for decimals
+    digits.forEach((item) => item.removeEventListener("click", displayUpper)); //Add back on operand press
+    console.log(checkerArray);
   }
 }
 
 /* // On operand press, result set to numA, numB set to "". 
   // Make event listeners work again.
-  // Use symbols from HTML
   // Decimal point need to be fixed -probably check arr[length - 1] for "."
   // Think of toggle function for +/- , maybe use unary "-"
   // AC wipes everything
   // Del can split, slice, join, output num
   // if statement for result decimals. toFixed only output when decimal present
-  // Make equals sign visible on displayUpper */ 
+  // .toFixed(1) for decimals */
 
 digits.forEach((item) => item.addEventListener("click", displayUpper));
 operands.forEach((item) => item.addEventListener("click", displayUpper));
