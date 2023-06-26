@@ -61,9 +61,8 @@ function calculateResult(event) {
         if(event.target.textContent === "=") {
           operationDisplay.textContent = `${operate(operator, numberA, numberB)}`;
         } else {
-          operationDisplay.textContent = `${operate(operator, numberA, numberB)} ${event.target.textContent}`;
+          operationDisplay.textContent = `${operate(operator, numberA, numberB)} ${event.target.textContent} `;
         }
-    digits.forEach((item) => item.removeEventListener("click", displayText)); //Add back on operand press
     console.log(checkerArray);
   }
 }
