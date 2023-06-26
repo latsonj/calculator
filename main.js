@@ -52,15 +52,18 @@ function displayUpper(event) { // Need to write code to prevent multiple decimal
   }
 }
 
-function displayResult() {
+function displayResult(event) {
   let checkerArray = operationDisplay.textContent.split(" ");
-  if ((checkerArray.length >= 3 // Make sure 2 numbers & operator are present before feeding them into operate()
-      && !checkerArray.includes(""))) { // Operands will not operate with empty strings
+  if (checkerArray.length >= 3 // Make sure 2 numbers & operator are present before feeding them into operate()
+      && !checkerArray.includes("")) { // Operands will not operate with empty strings
     let numberA = +checkerArray[0];
     let numberB = +checkerArray[2];
     let operator = checkerArray[1];
-    operationDisplay.textContent += ` ${equalsBtn.textContent}`;
-    resultDisplay.textContent += operate(operator, numberA, numberB);
+        if(event.target.textContent === "=") {
+          operationDisplay.textContent = `${operate(operator, numberA, numberB)}`;
+        } else {
+          operationDisplay.textContent = `${operate(operator, numberA, numberB)} ${event.target.textContent}`;
+        }
     digits.forEach((item) => item.removeEventListener("click", displayUpper)); //Add back on operand press
     console.log(checkerArray);
   }
@@ -77,4 +80,5 @@ function displayResult() {
 
 digits.forEach((item) => item.addEventListener("click", displayUpper));
 operands.forEach((item) => item.addEventListener("click", displayUpper));
+operands.forEach((item) => item.addEventListener("click", displayResult));
 equalsBtn.addEventListener("click", displayResult);
