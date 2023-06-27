@@ -2,6 +2,7 @@ const operationDisplay = document.querySelector(".operate-text");
 const equalsBtn = document.querySelector("#equals");
 const decimalPointBtn = document.querySelector("#decimal");
 const clearBtn = document.querySelector(".clear");
+const plusMinusToggleBtn = document.querySelector(".plus-minus-toggle");
 
 const digits = Array.from(document.querySelectorAll(".digits"));
 const operands = Array.from(document.querySelectorAll(".operands"));
@@ -72,19 +73,31 @@ function calculateResult(event) {
 
 function clearAll() {
   operationDisplay.textContent = "";
-  let checkerArray = operationDisplay.textContent.split(" ");
-  console.log(checkerArray);
 }
 
-/* // Decimal point need to be fixed -probably check arr[length - 1] for "."
-  // Think of toggle function for +/- , maybe use unary "-"
-  // AC wipes everything
+function toggleSign() {
+  let checkerArray = operationDisplay.textContent.split(" ");
+  if ((checkerArray.length === 1 || checkerArray.length === 3)
+  && !checkerArray.includes("")) {
+    checkerArray[checkerArray.length - 1] = -checkerArray[checkerArray.length - 1];
+    operationDisplay.textContent = checkerArray.join(" ");
+    console.log(-checkerArray[checkerArray.length - 1]);
+    console.log(checkerArray);
+  }
+}
+
+/* // Remove digit class from decimal?
+  // Decimal point need to be fixed -probably check arr[length - 1] for "."
   // Del can split, slice, join, output num
-  // Tell user to reset if CANNOT COMPUTE */
+  // Tell user to reset if CANNOT COMPUTE
+  // Check NaN bugs 
+  // EventListeners on AC CANNOT COMPUTE, condition on clearALL()
+  // Prevent overflow */
 
 digits.forEach((item) => item.addEventListener("click", displayText));
 operands.forEach((item) => item.addEventListener("click", displayText));
 operands.forEach((item) => item.addEventListener("click", calculateResult));
-equalsBtn.addEventListener("click", calculateResult);
 
+equalsBtn.addEventListener("click", calculateResult);
 clearBtn.addEventListener("click", clearAll);
+plusMinusToggleBtn.addEventListener("click", toggleSign);
