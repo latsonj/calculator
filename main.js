@@ -1,9 +1,10 @@
-let operationDisplay = document.querySelector(".operate-text");
-let equalsBtn = document.querySelector("#equals");
-let decimalPointBtn = document.querySelector("#decimal");
+const operationDisplay = document.querySelector(".operate-text");
+const equalsBtn = document.querySelector("#equals");
+const decimalPointBtn = document.querySelector("#decimal");
+const clearBtn = document.querySelector(".clear");
 
-let digits = Array.from(document.querySelectorAll(".digits"));
-let operands = Array.from(document.querySelectorAll(".operands"));
+const digits = Array.from(document.querySelectorAll(".digits"));
+const operands = Array.from(document.querySelectorAll(".operands"));
 
 function add(a, b) {
   return a + b;
@@ -58,7 +59,7 @@ function calculateResult(event) {
     let numberA = +checkerArray[0];
     let numberB = +checkerArray[2];
     let operator = checkerArray[1];
-        if(event.target.textContent === "=") { // + returnVal.toFixed(2) to get rid of long decimal results
+        if (event.target.textContent === "=") { // + returnVal.toFixed(2) to get rid of long decimal results
           operationDisplay.textContent = `${+ operate(operator, numberA, numberB).toFixed(2)}`;
           console.log(`${numberA} ${operator} ${numberB}`);
         } else {
@@ -69,17 +70,21 @@ function calculateResult(event) {
   }
 }
 
-/* // On operand press, result set to numA, numB set to "". 
-  // Make event listeners work again.
-  // Decimal point need to be fixed -probably check arr[length - 1] for "."
+function clearAll() {
+  operationDisplay.textContent = "";
+  let checkerArray = operationDisplay.textContent.split(" ");
+  console.log(checkerArray);
+}
+
+/* // Decimal point need to be fixed -probably check arr[length - 1] for "."
   // Think of toggle function for +/- , maybe use unary "-"
   // AC wipes everything
   // Del can split, slice, join, output num
-  // if statement for result decimals. toFixed only output when decimal present
-  // .toFixed(1) for decimals
   // Tell user to reset if CANNOT COMPUTE */
 
 digits.forEach((item) => item.addEventListener("click", displayText));
 operands.forEach((item) => item.addEventListener("click", displayText));
 operands.forEach((item) => item.addEventListener("click", calculateResult));
 equalsBtn.addEventListener("click", calculateResult);
+
+clearBtn.addEventListener("click", clearAll);
