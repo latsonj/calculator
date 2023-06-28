@@ -79,7 +79,7 @@ function toggleSign() {
   let checkerArray = operationDisplay.textContent.split(" ");
   if ((checkerArray.length === 1 || checkerArray.length === 3)
   && !checkerArray.includes("")) {
-    checkerArray[checkerArray.length - 1] = -checkerArray[checkerArray.length - 1];
+    checkerArray[checkerArray.length - 1] = -checkerArray[checkerArray.length - 1]; // Turns current num from +ve to -ve and vice versa.
     operationDisplay.textContent = checkerArray.join(" ");
     console.log(-checkerArray[checkerArray.length - 1]);
     console.log(checkerArray);
@@ -92,7 +92,8 @@ function toggleSign() {
   // Tell user to reset if CANNOT COMPUTE
   // Check NaN bugs 
   // EventListeners on AC CANNOT COMPUTE, condition on clearALL()
-  // Prevent overflow */
+  // Prevent overflow
+  // Keyboard support considered after CSS */
 
 digits.forEach((item) => item.addEventListener("click", displayText));
 operands.forEach((item) => item.addEventListener("click", displayText));
