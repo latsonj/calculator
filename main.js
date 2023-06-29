@@ -28,7 +28,7 @@ function divide(a, b) {
     equalsBtn.removeEventListener("click", calculateResult);
     plusMinusToggleBtn.removeEventListener("click", toggleSign);
     decimalPointBtn.removeEventListener("click", displayDecimal);
-    deleteBtn.removeEventListener("click", deleteDisplayValue);
+    deleteBtn.removeEventListener("click", deleteLatestValue);
     return "CANNOT COMPUTE PRESS AC"
   } else return a / b;
 }
@@ -89,7 +89,7 @@ function clearAll() {
     equalsBtn.addEventListener("click", calculateResult);
     plusMinusToggleBtn.addEventListener("click", toggleSign);
     decimalPointBtn.addEventListener("click", displayDecimal);
-    deleteBtn.addEventListener("click", deleteDisplayValue);
+    deleteBtn.addEventListener("click", deleteLatestValue);
     operationDisplay.textContent = "";
   } else operationDisplay.textContent = "";
 }
@@ -115,14 +115,20 @@ function displayDecimal() {
   }
 }
 
-function deleteDisplayValue() {
-
+function deleteLatestValue() {
+  let checkerArray = operationDisplay.textContent.split(" ");
+  if (checkerArray[checkerArray.length - 1] === "") {
+    checkerArray.pop();
+  }
+  checkerArray[checkerArray.length - 1] = checkerArray[checkerArray.length - 1].slice(0, -1);
+  operationDisplay.textContent = checkerArray.join(" ");
+  console.log(checkerArray);
 }
 
 /* // Del can split, slice, join, output num
   // Check NaN bugs 
   // Prevent overflow
-  // Add del button to line 22, line 80
+  // Check if Del works after num / 0
   // Keyboard support considered after CSS */
 
 digits.forEach((item) => item.addEventListener("click", displayText));
@@ -133,4 +139,4 @@ equalsBtn.addEventListener("click", calculateResult);
 clearBtn.addEventListener("click", clearAll);
 plusMinusToggleBtn.addEventListener("click", toggleSign);
 decimalPointBtn.addEventListener("click", displayDecimal);
-deleteBtn.addEventListener("click", deleteDisplayValue);
+deleteBtn.addEventListener("click", deleteLatestValue);
