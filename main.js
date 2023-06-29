@@ -21,7 +21,13 @@ function multiply(a, b) {
 
 function divide(a, b) {
   if (b === 0) {
-    return "CANNOT COMPUTE"
+    digits.forEach((item) => item.removeEventListener("click", displayText));
+    operands.forEach((item) => item.removeEventListener("click", displayText));
+    operands.forEach((item) => item.removeEventListener("click", calculateResult));
+    equalsBtn.removeEventListener("click", calculateResult);
+    plusMinusToggleBtn.removeEventListener("click", toggleSign);
+    decimalPointBtn.removeEventListener("click", displayDecimal);
+    return "CANNOT COMPUTE PRESS AC"
   } else return a / b;
 }
 
@@ -72,7 +78,15 @@ function calculateResult(event) {
 }
 
 function clearAll() {
-  operationDisplay.textContent = "";
+  if (operationDisplay.textContent === "CANNOT COMPUTE PRESS AC") {
+    digits.forEach((item) => item.addEventListener("click", displayText));
+    operands.forEach((item) => item.addEventListener("click", displayText));
+    operands.forEach((item) => item.addEventListener("click", calculateResult));
+    equalsBtn.addEventListener("click", calculateResult);
+    plusMinusToggleBtn.addEventListener("click", toggleSign);
+    decimalPointBtn.addEventListener("click", displayDecimal);
+    operationDisplay.textContent = "";
+  } else operationDisplay.textContent = "";
 }
 
 function toggleSign() {
