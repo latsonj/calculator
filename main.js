@@ -3,6 +3,7 @@ const equalsBtn = document.querySelector("#equals");
 const decimalPointBtn = document.querySelector("#decimal");
 const clearBtn = document.querySelector(".clear");
 const plusMinusToggleBtn = document.querySelector(".plus-minus-toggle");
+const deleteBtn = document.querySelector(".delete");
 
 const digits = Array.from(document.querySelectorAll(".digits"));
 const operands = Array.from(document.querySelectorAll(".operands"));
@@ -27,6 +28,7 @@ function divide(a, b) {
     equalsBtn.removeEventListener("click", calculateResult);
     plusMinusToggleBtn.removeEventListener("click", toggleSign);
     decimalPointBtn.removeEventListener("click", displayDecimal);
+    deleteBtn.removeEventListener("click", deleteDisplayValue);
     return "CANNOT COMPUTE PRESS AC"
   } else return a / b;
 }
@@ -87,6 +89,7 @@ function clearAll() {
     equalsBtn.addEventListener("click", calculateResult);
     plusMinusToggleBtn.addEventListener("click", toggleSign);
     decimalPointBtn.addEventListener("click", displayDecimal);
+    deleteBtn.addEventListener("click", deleteDisplayValue);
     operationDisplay.textContent = "";
   } else operationDisplay.textContent = "";
 }
@@ -112,6 +115,10 @@ function displayDecimal() {
   }
 }
 
+function deleteDisplayValue() {
+
+}
+
 /* // Del can split, slice, join, output num
   // Check NaN bugs 
   // Prevent overflow
@@ -126,3 +133,4 @@ equalsBtn.addEventListener("click", calculateResult);
 clearBtn.addEventListener("click", clearAll);
 plusMinusToggleBtn.addEventListener("click", toggleSign);
 decimalPointBtn.addEventListener("click", displayDecimal);
+deleteBtn.addEventListener("click", deleteDisplayValue);
