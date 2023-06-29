@@ -86,9 +86,17 @@ function toggleSign() {
   }
 }
 
-/* // Remove digit class from decimal?
-  // Decimal point need to be fixed -probably check arr[length - 1] for "."
-  // Del can split, slice, join, output num
+function displayDecimal() {
+  let checkerArray = operationDisplay.textContent.split(" ");
+  if (checkerArray.length === 1 || checkerArray.length === 3)
+    if (checkerArray[checkerArray.length - 1] === "") {
+    operationDisplay.textContent += "0.";
+  } else if (!checkerArray[checkerArray.length - 1].includes(".")) {
+    operationDisplay.textContent += ".";
+  }
+}
+
+/* // Del can split, slice, join, output num
   // Tell user to reset if CANNOT COMPUTE
   // Check NaN bugs 
   // EventListeners on AC CANNOT COMPUTE, condition on clearALL()
@@ -102,3 +110,4 @@ operands.forEach((item) => item.addEventListener("click", calculateResult));
 equalsBtn.addEventListener("click", calculateResult);
 clearBtn.addEventListener("click", clearAll);
 plusMinusToggleBtn.addEventListener("click", toggleSign);
+decimalPointBtn.addEventListener("click", displayDecimal);
