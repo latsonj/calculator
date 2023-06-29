@@ -66,7 +66,9 @@ function calculateResult(event) {
     let numberA = +checkerArray[0];
     let numberB = +checkerArray[2];
     let operator = checkerArray[1];
-        if (event.target.textContent === "=") { // + returnVal.toFixed(2) to get rid of long decimal results
+        if (operator === "÷" && numberB == "0") {
+          operationDisplay.textContent = operate(operator, numberA, numberB);
+        } else if (event.target.textContent === "=") { // + returnVal.toFixed(2) to get rid of long decimal results
           operationDisplay.textContent = `${+ operate(operator, numberA, numberB).toFixed(2)}`;
           console.log(`${numberA} ${operator} ${numberB}`);
         } else {
@@ -111,10 +113,9 @@ function displayDecimal() {
 }
 
 /* // Del can split, slice, join, output num
-  // Tell user to reset if CANNOT COMPUTE
   // Check NaN bugs 
-  // EventListeners on AC CANNOT COMPUTE, condition on clearALL()
   // Prevent overflow
+  // Add del button to line 22, line 80
   // Keyboard support considered after CSS */
 
 digits.forEach((item) => item.addEventListener("click", displayText));
