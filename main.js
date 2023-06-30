@@ -84,12 +84,12 @@ function calculateResult(event) {
         if (operator === "÷" && numberB == "0") {
           operationDisplay.textContent = operate(operator, numberA, numberB);
 
-        } else if (event.target.textContent === "=") { // + returnVal.toFixed(2) to get rid of long decimal results
-          operationDisplay.textContent = `${+ operate(operator, numberA, numberB).toFixed(2)}`;
+        } else if (event.target.textContent === "=") { // + returnVal.toFixed(15) to get rid of long decimal results
+          operationDisplay.textContent = `${+ operate(operator, numberA, numberB).toFixed(15)}`;
           console.log(`${numberA} ${operator} ${numberB}`);
 
         } else {
-          operationDisplay.textContent = `${+ operate(operator, numberA, numberB).toFixed(2)} ${event.target.textContent} `;
+          operationDisplay.textContent = `${+ operate(operator, numberA, numberB).toFixed(15)} ${event.target.textContent} `;
           console.log(`${numberA} ${operator} ${numberB}`);
         }
     console.log(checkerArray);
