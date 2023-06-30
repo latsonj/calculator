@@ -49,9 +49,13 @@ function displayText(event) { // Need to write code to prevent multiple decimal 
   let buttonText = event.target.textContent;
   let checkerArray = operationDisplay.textContent.split(" ");
 
-  if (event.target.classList.contains("digits")) {
+  if (event.target.classList.contains("digits")) { // For deleting operator
+    if (checkerArray.length === 2) {
+      operationDisplay.textContent += ` ${buttonText}`;
+    } else {
     operationDisplay.textContent += `${buttonText}`;
     console.log(checkerArray);
+  }
   } else if ((checkerArray[0] !== "" // Operand cannot be written as first item
       && checkerArray.length < 3 // Operands cannot be written 2 times in a row
       && event.target.classList.contains("operands"))) {
@@ -115,20 +119,18 @@ function displayDecimal() {
   }
 }
 
-function deleteLatestValue() {
+function deleteLatestValue() { 
   let checkerArray = operationDisplay.textContent.split(" ");
-  if (checkerArray[checkerArray.length - 1] === "") {
-    checkerArray.pop();
+  if (checkerArray.length === 3
+    && checkerArray[checkerArray.length - 1] === "") { // If 3rd item is empty string, delete 2 arr items, leaving 1 item
+      checkerArray.pop();
+      checkerArray.splice(checkerArray.length - 1, 1);
+    } else checkerArray[checkerArray.length - 1] = checkerArray[checkerArray.length - 1].slice(0, -1);
+    operationDisplay.textContent = checkerArray.join(" ");
+    console.log(checkerArray);
   }
-  checkerArray[checkerArray.length - 1] = checkerArray[checkerArray.length - 1].slice(0, -1);
-  operationDisplay.textContent = checkerArray.join(" ");
-  console.log(checkerArray);
-}
 
-/* // Del can split, slice, join, output num
-  // Check NaN bugs 
-  // Prevent overflow
-  // Check if Del works after num / 0
+/*  // Prevent overflow
   // Keyboard support considered after CSS */
 
 digits.forEach((item) => item.addEventListener("click", displayText));
