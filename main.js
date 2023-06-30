@@ -145,8 +145,7 @@ function deleteLatestValue() {
     console.log(checkerArray);
 }
 
-/*  // Prevent overflow
-  // Keyboard support considered after CSS */
+/* // Keyboard support considered after CSS */
 
 digits.forEach((item) => item.addEventListener("click", displayText));
 operands.forEach((item) => item.addEventListener("click", displayText));
