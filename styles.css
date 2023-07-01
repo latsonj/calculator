@@ -1,9 +1,10 @@
 .calculator-container {
-  border: 1px solid black;
+  border-radius: 3px;
   padding: 1em;
-  width: 250px;
+  width: 350px;
   margin: auto;
   margin-top: 4em;
+  background-color: #212121;
 }
 
 .display {
@@ -12,8 +13,13 @@
 }
 
 .display-container {
-  border: 1px solid black;
-  margin-bottom: 12px;
+  border-radius: 5px;
+  margin: 15px 10px 30px;
+  padding: 10px;
+  background-color: #6A6A6A;
+  color: lawngreen;
+  word-wrap: break-word;
+  min-height: 100px;
 }
 
 .bottom-container {
@@ -27,13 +33,20 @@
 }
 
 #zero {
-  width: 112px; /* When changing CSS, make this as wide as 2 buttons + 2 margin*/
+  width: 157px; /* When changing CSS, make this as wide as 2 buttons + 2 margin*/
 }
 
 button {
-  width: 50px;
-  height: 30px;
-  margin: 6px;
+  width: 70px;
+  height: 43px;
+  margin: 8px;
+  border: 2px solid turquoise;
+  border-radius: 3px;
+  font-weight: 600;
+  background-color: #212121;
+  color: gainsboro;
+  font-size: 18px;
+  padding: 4px;
 }
 
 h1 {
@@ -43,3 +56,38 @@ h1 {
 .text {
   font-family:'Courier New', Courier, monospace;
 }
+
+p {
+  font-size: 28px;
+}
+
+body {
+  background-color: #4A4A4A;
+}
+
+.header {
+  color: lawngreen;
+}
+
+.misc {
+  background-color: #212121;
+  color: gainsboro;
+  border: 2px solid hotpink;
+  font-weight: 800;
+}
+
+.operands {
+  background-color: #212121;
+  color: gainsboro;
+  border: 2px solid darkorange;
+  font-weight: 800;
+}
+
+#equals {
+  background-color: #212121;
+  color: gainsboro;
+  border: 2px solid orangered;
+  font-weight: 800;
+}
+
+/* Google how to prevent overflow text JS */
