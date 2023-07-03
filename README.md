@@ -29,7 +29,7 @@ I think my project is good, but not *great*. I have another branch open to try a
   - Negative sign toggling negative sign instead of relying on toggle button
 
 ## Attributions
-This project was created with fonts and images from:
+This project was created with images from:
 
  - [Calculator icons created by srip - Flaticon](https://www.flaticon.com/free-icons/calculator)
 
