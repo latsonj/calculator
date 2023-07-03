@@ -52,6 +52,18 @@ button {
   box-shadow: 2px 2px 4px #101010;
 }
 
+button:hover {
+  background-color: gainsboro;
+  color: #212121;
+  transition: 175ms;
+}
+
+button:active {
+  background-color: gainsboro;
+  color: #212121;
+  transform: translateY(2px);
+}
+
 h1 {
   text-align: center;
 }
@@ -91,4 +103,16 @@ body {
   color: gainsboro;
   border: 2px solid orangered;
   font-weight: 800;
+}
+
+#equals:hover {
+  background-color: gainsboro;
+  color: #212121;
+  transition: 175ms;
+}
+
+#equals:active {
+  background-color: gainsboro;
+  color: #212121;
+  transform: translateY(2px);
 }
