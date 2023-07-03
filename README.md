@@ -12,7 +12,7 @@ My **live demo** can be found [here](https://latsonj.github.io/calculator/).
 
 ## Screenshots
 
-  <img src="./images/README.png" alt="Screenshot of live demo Calculator page" width="500px"/> 
+  <img src="./images/README.png" alt="Screenshot of live demo Calculator page" width="250px"/> 
 
 ## Learning Observations
 
