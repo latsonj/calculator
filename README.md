@@ -8,7 +8,7 @@ My **live demo** can be found [here](https://latsonj.github.io/calculator/).
 
  - **HTML5**
  - **CSS3**
- - **Vanilla** JS
+ - **Vanilla JS**
 
 ## Screenshots
 
