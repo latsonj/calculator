@@ -4,17 +4,17 @@ A webpage that contains a calculator. This was the final project built for the *
 
 My **live demo** can be found [here](https://latsonj.github.io/calculator/).
 
-## Technologies used
+## 🛠️ Technologies used
 
  - **HTML5**
  - **CSS3**
  - **Vanilla JS**
 
-## Screenshots
+## 📷 Screenshots
 
   <img src="./images/README.png" alt="Screenshot of live demo Calculator page" width="250px"/> 
 
-## Learning Observations
+## 📝 Learning Observations
 
 This was the final project of the **Foundations** section of the **Odin Project** and really hammered home the concepts of **DOM Manipulation** and **Event listeners**. This project was also a chance to get practice on all the methods and important learning points that I've used up until this project.
 
@@ -33,6 +33,6 @@ This project was created with images from:
 
  - [Calculator icons created by srip - Flaticon](https://www.flaticon.com/free-icons/calculator)
 
-## Author
+## 👤 Author
 
 Created by [latsonj](https://github.com/latsonj)
